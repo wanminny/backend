@@ -50,6 +50,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	// 两个client 1 ,kubeclient
 	clientset, err := kubernetes.NewForConfig(config)
 	if err != nil {
 		panic(err)
@@ -57,6 +58,7 @@ func main() {
 
 	clientset.BatchV1()
 	//clientcmd.
+	// 第二个client ;资源client;
 	deploymentsClient := clientset.AppsV1().Deployments(apiv1.NamespaceDefault)
 
 	deployment := &appsv1.Deployment{
